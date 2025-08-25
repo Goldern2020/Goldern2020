@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GOLDEN FASHION LUXURY</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="fashion.png" type="image/png">
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    /* === Reset & Base Styles === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #c4a484; /* Soft Gold */
+      --secondary: #8b6b4a; /* Rich Brown-Gold */
+      --dark: #0c0c1d; /* Deep Navy */
+      --light: #fff;
+      --cream: #fdf6f0; /* Warm Cream */
+      --text: #222;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    /* === Header & Navigation === */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--dark);
+      padding: 15px 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-container {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .logo {
+      height: 90px;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: scale(1.08);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .search-container {
+      margin-left: auto;
+    }
+
+    .search-input {
+      padding: 10px 15px;
+      width: 220px;
+      border: 1px solid var(--primary);
+      border-radius: 30px;
+      outline: none;
+      background: var(--cream);
+      color: var(--text);
+    }
+
+    .search-input::placeholder {
+      color: #aaa;
+    }
+
+    .cart-container {
+      font-size: 22px;
+      color: var(--light);
+      cursor: pointer;
+      margin-left: 20px;
+    }
+
+    .cart-icon {
+      font-size: 24px;
+      transition: var(--transition);
+    }
+
+    .cart-icon:hover {
+      color: var(--primary);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--primary);
+      color: var(--dark);
+      font-size: 12px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .burger {
+      display: none;
+      cursor: pointer;
+    }
+
+    .burger div {
+      width: 28px;
+      height: 3px;
+      background: var(--primary);
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    /* === Section Styling === */
+    section {
+      padding: 60px 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-header h2 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      font-weight: normal;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+
+    .section-header h2:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 1px;
+      background: var(--primary);
+      margin: 15px auto;
+    }
+
+    .section-header p {
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    /* === Classic Product Grid === */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    .product-card {
+      background: var(--light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .product-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .product-content {
+      padding: 20px;
+    }
+
+    .product-content h3 {
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin: 10px 0 8px;
+    }
+
+    .product-content p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .price {
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin: 12px 0;
+    }
+
+    .view-more-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: transparent;
+      color: var(--dark);
+      border: 2px solid var(--primary);
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .view-more-btn:hover {
+      background: var(--primary);
+      color: var(--light);
+    }
+
+    /* === About Section === */
+    .about-section {
+      background: var(--dark);
+      color: var(--light);
+      padding: 60px 30px;
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .about-section h2 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .about-section p {
+      color: var(--cream);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 10px auto;
+      line-height: 1.8;
+    }
+
+    /* === Footer === */
+    footer {
+      background: var(--dark);
+      color: var(--light);
+      padding: 50px 20px 30px;
+      margin-top: 60px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-section {
+      flex: 1 1 250px;
+    }
+
+    .footer-logo {
+      width: 160px;
+      margin-bottom: 20px;
+      border: 1px solid var(--primary);
+      border-radius: 50%;
+    }
+
+    .footer-description {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .footer-heading {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .footer-address {
+      color: #bbb;
+      line-height: 1.7;
+    }
+
+    .footer-address a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 18px;
+      margin-top: 15px;
+    }
+
+    .footer-social img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-social a:hover img {
+      transform: scale(1.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid #333;
+      margin-top: 50px;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    /* === Responsive Design === */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--dark);
+        padding: 15px;
+        border-radius: 8px;
+        position: absolute;
+        top: 100%;
+        right: 20px;
+        width: 200px;
+        z-index: 10;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      nav {
+        justify-content: flex-end;
+      }
+
+      .search-container {
+        order: 1;
+        margin: 10px 0;
+      }
+    }
+    .card:nth-child(odd) {
+      animation-delay: 0.2s;
+    }
+
+    .card:nth-child(even) {
+      animation-delay: 0.4s;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="logo-container">
+      <img src="fashion.png" alt="Golden Fashion Logo" class="logo">
+    </div>
+    <nav>
+      <ul class="nav-links">z
+        <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="./new in.html"><i class="fas fa-star"></i> New In</a></li>
+        <li><a href="./shop.html"><i class="fas fa-shopping-bag"></i> Shop</a></li>
+        <li><a href="./unisex.html"><i class="fas fa-universal-access"></i> Unisex</a></li>
+      </ul>
+
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search designs..." class="search-input">
+      </div>
+
+      <div class="cart-container" id="cartIcon">
+        <i class="fas fa-shopping-cart cart-icon"></i>
+        <span class="cart-count">0</span>
+      </div>
+
+      <div class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- New In Section -->
+  <section id="collections">
+    <div class="container">
+      <div class="section-header">
+        <h2>New Arrivals</h2>
+        <p>Discover timeless elegance in our latest collection — handcrafted with grace, designed for the refined.</p>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <!-- Cards will be injected by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <div id="about" class="about-section">
+    <h2>Golden Fashion Luxury</h2>
+    <p>We believe in the art of dressing with dignity, beauty, and purpose. Every fabric, every stitch, tells a story.</p>
+    <p>From our atelier in Kano to your wardrobe — experience the legacy of African elegance, reimagined.</p>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-section">
+        <img src="fashion.png" alt="Logo" class="footer-logo">
+        <p class="footer-description">Delivering quality fashion with care, precision, and timeless elegance.</p>
+      </div>
+      <div class="footer-section">
+        <h2 class="footer-heading">Contact</h2>
+        <address class="footer-address">
+          No. 251 Maikansakali, Tudun Yola<br>
+          Kano State, Nigeria<br>
+          Email: <a href="mailto:idrishauwa374@gmail.com">idrishauwa374@gmail.com</a><br>
+          Phone: +234 9166641286
+        </address>
+      </div>
+      <div class="footer-section">
+        <h2 class="footer-heading">Follow Us</h2>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">
+            <img src="facebook log.jpg" alt="Facebook">
+          </a>
+          <a href="https://wa.me/2349166641286" target="_blank" rel="noopener">
+            <img src="watsapp.jpg" alt="WhatsApp">
+          </a>
+          <a href="#" aria-label="Twitter">
+            <img src="twi log.jpg" alt="Twitter">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Golden Fashion Luxury. All rights reserved. Crafted with elegance.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Product Data
+    const products = [
+      {
+        id: 1,
+        name: "Ankara/Atampafa",
+        description: "Vibrant African wax print fabric, perfect for bold and beautiful styles.",
+        image: "ACOY0029.JPG",
+        badge: "NEW"
+      },
+      {
+        id: 2,
+        name: "Fashion Abayas",
+        description: "Elegant, modest abayas crafted for comfort and grace.",
+        image: "abaya 1.jpeg",
+        badge: "NEW"
+      },
+      {
+        id: 3,
+        name: "Fashion Shoes",
+        description: "Stylish footwear to complete your look with flair.",
+        image: "JDZS6256.JPG",
+        badge: "NEW"
+      },
+      {
+        id: 4,
+        name: "Cotton Kampala",
+        description: "Soft, breathable cotton ideal for everyday elegance.",
+        image: "NSAL5504.JPG",
+        badge: "NEW"
+      },
+      {
+        id: 5,
+        name: "Jersey Viels",
+        description: "Stretchy, modern jersey fabric for contemporary African fashion.",
+        image: "XGGM3124.WEBP",
+        badge: "NEW"
+      },
+      {
+        id: 6,
+        name: "Shadda Fabric",
+        description: "Luxurious, richly woven fabric for ceremonial and traditional wear.",
+        image: "shadda.jpg",
+        badge: "TRENDING"
+      }
+    ];
+
+    // Cart
+    let cartCount = 0;
+    const cartCounter = document.querySelector('.cart-count');
+    const searchInput = document.getElementById('searchInput');
+    const productGrid = document.getElementById('productGrid');
+
+    // Render Products
+    function renderProducts() {
+      productGrid.innerHTML = '';
+      products.forEach(product => {
+        const badge = product.badge ? `<div class="new-badge" style="position:absolute;top:15px;left:15px;background:${product.badge==='TRENDING'?'#2ecc71':'#c4a484'};color:white;padding:5px 10px;border-radius:15px;font-size:12px;">${product.badge}</div>` : '';
+        productGrid.innerHTML += `
+          <div class="product-card">
+            ${badge}
+            <img src="${product.image}" alt="${product.name}">
+            <div class="product-content">
+              <h3>${product.name}</h3>
+              <p>${product.description}</p>
+              <button class="view-more-btn" onclick="addToCart(${product.id})">View More</button>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Add to Cart
+    function addToCart(id) {
+      cartCount++;
+      cartCounter.textContent = cartCount;
+      const product = products.find(p => p.id === id);
+      alert(`${product.name} added to your collection.`);
+    }
+
+    // Search Functionality
+    searchInput.addEventListener('input', function() {
+      const term = this.value.toLowerCase();
+      document.querySelectorAll('.product-card').forEach(card => {
+        const text = (card.querySelector('h3').textContent + ' ' + card.querySelector('p').textContent).toLowerCase();
+        card.style.display = text.includes(term) ? 'block' : 'none';
+      });
+    });
+
+    // Mobile Menu Toggle
+    document.querySelector('.burger').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', renderProducts);
+  </script>
+
+</body>
+</html>

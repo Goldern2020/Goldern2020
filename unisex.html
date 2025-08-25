@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unisex Collection - Golden Fashion Luxury</title>
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* === Reset & Base Styles === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #c4a484; /* Soft Gold */
+      --secondary: #8b6b4a; /* Rich Brown-Gold */
+      --dark: #0c0c1d; /* Deep Navy */
+      --light: #fff;
+      --cream: #fdf6f0; /* Warm Cream */
+      --text: #222;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Georgia', serif; 
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* === Header & Navigation === */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--dark);
+      padding: 15px 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-container {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .logo {
+      height: 90px;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: scale(1.08);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .search-container {
+      margin-left: auto;
+    }
+
+    .search-input {
+      padding: 10px 15px;
+      width: 220px;
+      border: 1px solid var(--primary);
+      border-radius: 30px;
+      outline: none;
+      background: var(--cream);
+      color: var(--text);
+    }
+
+    .cart-container {
+      font-size: 22px;
+      color: var(--light);
+      cursor: pointer;
+      margin-left: 20px;
+      position: relative;
+    }
+
+    .cart-icon {
+      font-size: 24px;
+      transition: var(--transition);
+    }
+
+    .cart-icon:hover {
+      color: var(--primary);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--primary);
+      color: var(--dark);
+      font-size: 12px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .burger {
+      display: none;
+      cursor: pointer;
+    }
+
+    .burger div {
+      width: 28px;
+      height: 3px;
+      background: var(--primary);
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    /* === Section Styling === */
+    section {
+      padding: 60px 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-header h2 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      font-weight: normal;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+
+    .section-header h2::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 1px;
+      background: var(--primary);
+      margin: 15px auto;
+    }
+
+    .section-header p {
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    /* === Classic Product Grid === */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      padding: 0 10px;
+    }
+
+    .product-card {
+      background: var(--light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .product-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .product-content {
+      padding: 20px;
+    }
+
+    .product-content h3 {
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin: 10px 0 8px;
+    }
+
+    .product-content p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .price {
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin: 12px 0;
+    }
+
+    .add-to-cart-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: transparent;
+      color: var(--dark);
+      border: 2px solid var(--primary);
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .add-to-cart-btn:hover {
+      background: var(--primary);
+      color: var(--light);
+    }
+
+    /* === Badges === */
+    .new-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--primary);
+      color: var(--light);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      z-index: 2;
+    }
+
+    .sale-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #e63946;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.8rem;
+      z-index: 2;
+    }
+
+    .trending-ribbon {
+      position: absolute;
+      top: 25px;
+      right: -25px;
+      transform: rotate(45deg);
+      background: var(--secondary);
+      color: var(--light);
+      padding: 6px 30px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      z-index: 2;
+    }
+
+    /* === About Section === */
+    .about-section {
+      background: var(--dark);
+      color: var(--light);
+      padding: 60px 30px;
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .about-section h2 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .about-section p {
+      color: var(--cream);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 10px auto;
+      line-height: 1.8;
+    }
+
+    /* === Footer === */
+    footer {
+      background: var(--dark);
+      color: var(--light);
+      padding: 50px 20px 30px;
+      margin-top: 60px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-section {
+      flex: 1 1 250px;
+    }
+
+    .footer-logo {
+      width: 160px;
+      margin-bottom: 20px;
+      border: 1px solid var(--primary);
+      border-radius: 50%;
+    }
+
+    .footer-description {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .footer-heading {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .footer-address {
+      color: #bbb;
+      line-height: 1.7;
+    }
+
+    .footer-address a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 18px;
+      margin-top: 15px;
+    }
+
+    .footer-social img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-social a:hover img {
+      transform: scale(1.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid #333;
+      margin-top: 50px;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    /* === Cart Modal === */
+    .cart-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 400px;
+      height: 100vh;
+      background: var(--light);
+      z-index: 1000;
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+      transform: translateX(100%);
+      transition: transform 0.4s ease;
+      overflow-y: auto;
+    }
+
+    .cart-modal.active {
+      transform: translateX(0);
+      display: block;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: var(--cream);
+      border-bottom: 1px solid #eee;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: var(--dark);
+      cursor: pointer;
+    }
+
+    .cart-items {
+      padding: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px dashed #eee;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+
+    .item-details h4 {
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .item-price {
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .quantity-btn {
+      width: 28px;
+      height: 28px;
+      border: 1px solid #ddd;
+      background: #f8f8f8;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .cart-summary {
+      padding: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .total-row {
+      font-weight: bold;
+      font-size: 1.3em;
+      color: var(--primary);
+      border-top: 1px solid #eee;
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      color: var(--light);
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: var(--transition);
+    }
+
+    .checkout-btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* === Responsive Design === */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--dark);
+        padding: 15px;
+        border-radius: 8px;
+        position: absolute;
+        top: 100%;
+        right: 20px;
+        width: 200px;
+        z-index: 10;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      nav {
+        justify-content: flex-end;
+      }
+
+      .search-container {
+        order: 1;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="logo-container">
+      <img src="fashion.png" alt="Golden Fashion Logo" class="logo">
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="./new in.html"><i class="fas fa-star"></i> New In</a></li>
+        <li><a href="./shop.html"><i class="fas fa-shopping-bag"></i> Shop</a></li>
+        <li><a href="./unisex.html"><i class="fas fa-universal-access"></i> Unisex</a></li>
+      </ul>
+
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search designs..." class="search-input">
+      </div>
+
+      <div class="cart-container" id="cartIcon">
+        <i class="fas fa-shopping-cart cart-icon"></i>
+        <span class="cart-count">0</span>
+      </div>
+
+      <div class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Unisex Collection Section -->
+  <section id="unisex">
+    <div class="container">
+      <div class="section-header">
+        <h2>Unisex Collection</h2>
+        <p>Elevate your style with timeless pieces designed for everyone — where comfort meets luxury.</p>
+      </div>
+      <div class="product-grid" id="unisexGrid"></div>
+    </div>
+  </section>
+
+  <!-- New In Section (as Footer) -->
+  <section id="new-in" style="background: #f8f8f8;">
+    <div class="container">
+      <div class="section-header">
+        <h2>New Arrivals</h2>
+        <p>Discover timeless elegance in our latest collection — handcrafted with grace, designed for the refined.</p>
+      </div>
+      <div class="product-grid" id="newInGrid"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <div id="about" class="about-section">
+    <h2>Golden Fashion Luxury</h2>
+    <p>We believe in the art of dressing with dignity, beauty, and purpose. Every fabric, every stitch, tells a story.</p>
+    <p>From our atelier in Kano to your wardrobe — experience the legacy of African elegance, reimagined.</p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <img src="fashion.png" alt="Logo" class="footer-logo">
+        <p class="footer-description">Delivering quality fashion with care, precision, and timeless elegance.</p>
+      </div>
+      <div class="footer-section">
+        <h2 class="footer-heading">Contact</h2>
+        <address class="footer-address">
+          No. 251 Maikansakali, Tudun Yola<br>
+          Kano State, Nigeria<br>
+          Email: <a href="mailto:idrishauwa374@gmail.com">idrishauwa374@gmail.com</a><br>
+          Phone: +234 9166641286
+        </address>
+      </div>
+      <div class="footer-section">
+        <h2 class="footer-heading">Follow Us</h2>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+          </a>
+          <a href="#" aria-label="Instagram">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+          </a>
+
+          </a>
+          <a href="#" aria-label="Twitter">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Golden Fashion Luxury. All rights reserved. Crafted with elegance.</p>
+    </div>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div class="overlay" id="overlay"></div>
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-header">
+      <h3>Your Collection</h3>
+      <button class="close-cart" id="closeCart">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart">Your cart is empty</p>
+    </div>
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Subtotal:</span>
+        <span id="cartSubtotal">₦0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>Shipping:</span>
+        <span>Free</span>
+      </div>
+      <div class="summary-row total-row">
+        <span>Total:</span>
+        <span id="cartTotal">₦0.00</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <script>
+    // Unisex Products
+    const unisexProducts = [
+      { id: 1, name: "Unisex", description: "up and down unisex stylish for everyday wear.", price: 19000, image: "unis.jpg", badge: "NEW" },
+      { id: 2, name: "Snap back", description: "for men and ladies 1pc adjustable.", price: 6000, image: "cap.jpg", badge: null },
+      { id: 3, name: "tracksuit set ", description: "This tracksuit combines practicality and fashion.", price: 15000, image: "riga.jpg", badge: "SALE" },
+      { id: 4, name: "Joggers", description: "Unisex classy designer sneakers.", price: 22000, image: "sh.jpg", badge: "NEW" },
+      { id: 5, name: "Graphic T-Shirt", description: "Bold prints, relaxed fit — wear it your way.", price: 8000, image: "t wear.jpg", badge: null },
+      { id: 6, name: "Cargo Pants", description: "Functional, durable, and effortlessly cool.", price: 15000, image: "cargo.jpg", badge: "NEW" },
+      { id: 7, name: "Nike-inspired tracksuit set", description: "This tracksuit is a great choice for anyone wanting to stay cozy.", price: 21000, image: "HYES8312.JPG", badge: "TRENDING" },
+      { id: 8, name: "Unisex sneakers", description: "stay stylish and comportable on the go with these lightweight sneakers.", price: 11500, image: "ITUP6512.JPG", badge: "NEW" }
+    ];
+
+    // New In Products (for footer)
+    const newInProducts = [
+      { id: 9, name: "Nike tracksuit", description: "This tracksuit is a great choice for anyone wanting to stay cozy.", price: 21000, image: "ITHB9402.JPG", badge: "NEW" },
+      { id: 10, name: "Kids desigers", description: "Wholesale kids autumn trousers set.", price: 21000, image: "kids.jpg", badge: "SALE" },
+      { id: 11, name: "unisex backpack", description: "This backpack combines style, utility, and durability.", price: 20000.00, image: "IMG_2184.PNG", badge: "TRENDING" },
+      { id: 12, name: "Casual matching", description: "this outfit is casual and trendy,suitable for summer or spring outings.", price: 21000.99, image: "IMG_E2183.JPG", badge: "NEW" }
+    ];
+
+    // Cart
+    let cart = JSON.parse(localStorage.getItem('goldenFashionCart')) || [];
+    const cartCount = document.querySelector('.cart-count');
+    const cartItems = document.getElementById('cartItems');
+    const cartSubtotal = document.getElementById('cartSubtotal');
+    const cartTotal = document.getElementById('cartTotal');
+    const cartModal = document.getElementById('cartModal');
+    const overlay = document.getElementById('overlay');
+    const closeCart = document.getElementById('closeCart');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    const unisexGrid = document.getElementById('unisexGrid');
+    const newInGrid = document.getElementById('newInGrid');
+    const searchInput = document.getElementById('searchInput');
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      updateCartCount();
+      setupEventListeners();
+    });
+
+    function renderProducts() {
+      unisexGrid.innerHTML = '';
+      newInGrid.innerHTML = '';
+      unisexProducts.forEach(p => unisexGrid.innerHTML += createCard(p, 'unisex'));
+      newInProducts.forEach(p => newInGrid.innerHTML += createCard(p, 'newIn'));
+    }
+
+    function createCard(product, section) {
+      let badge = '';
+      if (product.badge === 'NEW') badge = `<div class="new-badge">NEW</div>`;
+      if (product.badge === 'SALE') badge = `<div class="sale-badge">SALE</div>`;
+      if (product.badge === 'TRENDING') badge = `<div class="trending-ribbon">TRENDING</div>`;
+
+      const formattedPrice = `₦${product.price.toLocaleString('en-NG', { minimumFractionDigits: 2 })}`;
+
+      return `
+        <div class="product-card" data-id="${product.id}" data-section="${section}">
+          ${badge}
+          <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x280'">
+          <div class="product-content">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <div class="price">${formattedPrice}</div>
+            <button class="add-to-cart-btn add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function setupEventListeners() {
+      document.querySelector('.burger').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('active');
+      });
+
+      searchInput.addEventListener('input', function() {
+        const term = this.value.toLowerCase();
+        document.querySelectorAll('.product-card').forEach(card => {
+          const text = (card.querySelector('h3').textContent + ' ' + card.querySelector('p').textContent).toLowerCase();
+          card.style.display = text.includes(term) ? 'block' : 'none';
+        });
+      });
+
+      document.getElementById('cartIcon').addEventListener('click', () => {
+        cartModal.classList.add('active');
+        overlay.classList.add('active');
+        renderCart();
+      });
+
+      closeCart.addEventListener('click', () => {
+        cartModal.classList.remove('active');
+        overlay.classList.remove('active');
+      });
+
+      overlay.addEventListener('click', () => {
+        cartModal.classList.remove('active');
+        overlay.classList.remove('active');
+      });
+
+      document.addEventListener('click', e => {
+        if (e.target.classList.contains('add-to-cart')) {
+          const card = e.target.closest('.product-card');
+          const id = parseInt(card.dataset.id);
+          const section = card.dataset.section;
+          const products = section === 'unisex' ? unisexProducts : newInProducts;
+          const product = products.find(p => p.id === id);
+          addToCart(product);
+          showToast(`${product.name} added to your collection.`);
+        }
+      });
+
+      document.addEventListener('click', e => {
+        if (e.target.classList.contains('quantity-btn')) {
+          const id = parseInt(e.target.closest('.cart-item').dataset.id);
+          const action = e.target.dataset.action;
+          updateCart(id, action);
+        }
+      });
+
+      checkoutBtn.addEventListener('click', () => {
+        if (cart.length > 0) {
+          alert("Thank you for your order! We'll contact you shortly.");
+          cart = [];
+          saveCart();
+          renderCart();
+          updateCartCount();
+          cartModal.classList.remove('active');
+          overlay.classList.remove('active');
+        }
+      });
+    }
+
+    function addToCart(product) {
+      const item = cart.find(i => i.id === product.id);
+      if (item) {
+        item.quantity++;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+      saveCart();
+      renderCart();
+      updateCartCount();
+    }
+
+    function updateCart(id, action) {
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+
+      if (action === 'increase') item.quantity++;
+      if (action === 'decrease' && item.quantity > 1) item.quantity--;
+      if (action === 'remove' || (action === 'decrease' && item.quantity <= 1)) {
+        cart = cart.filter(i => i.id !== id);
+      }
+
+      saveCart();
+      renderCart();
+      updateCartCount();
+    }
+
+    function renderCart() {
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
+        cartSubtotal.textContent = cartTotal.textContent = '₦0.00';
+        return;
+      }
+
+      let html = '', subtotal = 0;
+      cart.forEach(item => {
+        const total = item.price * item.quantity;
+        subtotal += total;
+        const formattedPrice = `₦${item.price.toFixed(2)}`;
+        const formattedTotal = `₦${total.toFixed(2)}`;
+
+        html += `
+          <div class="cart-item" data-id="${item.id}">
+            <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/80x100'">
+            <div class="item-details">
+              <h4>${item.name}</h4>
+              <div class="item-price">${formattedPrice}</div>
+              <div class="item-quantity">
+                <button class="quantity-btn" data-action="decrease">−</button>
+                <span>${item.quantity}</span>
+                <button class="quantity-btn" data-action="increase">+</button>
+                <button class="quantity-btn" data-action="remove" style="font-size:12px;color:#e63946;">✕</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      cartItems.innerHTML = html;
+      cartSubtotal.textContent = `₦${subtotal.toFixed(2)}`;
+      cartTotal.textContent = `₦${subtotal.toFixed(2)}`;
+    }
+
+    function updateCartCount() {
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = count;
+    }
+
+    function saveCart() {
+      localStorage.setItem('goldenFashionCart', JSON.stringify(cart));
+    }
+
+    function showToast(message) {
+      let toast = document.getElementById('toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast';
+        toast.style.cssText = `
+          position: fixed; bottom: 30px; right: 30px; background: #0c0c1d; color: white;
+          padding: 14px 24px; border-radius: 8px; z-index: 9999; opacity: 0;
+          transition: opacity 0.3s; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        `;
+        document.body.appendChild(toast);
+      }
+      toast.textContent = message;
+      toast.style.opacity = '1';
+      setTimeout(() => toast.style.opacity = '0', 3000);
+    }
+  </script>
+</body>
+</html>
