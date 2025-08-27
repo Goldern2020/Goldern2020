@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html lang="en" class="light"> <head>
+ <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hauwa idris | Web Developer</title> <link rel="stylesheet" href="index.css" /> 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"> 
+<link rel="icon" href="images/favicon.ico" type="image/x-icon"> </head>
+ <body> <nav class="navbar">
+   <div class="container">
+   <h2><a href="index.html">Hauwa Idris.dev</a></h2> 
+   <div class="nav-right">
+   <ul class="nav-menu">
+     <li><a href="./log.html" class="active">Home</a></li>
+     <li><a href="./contact.html">Contact</a></li>
+     </ul> <button id="theme-toggle" aria-label="Toggle Dark Mode">
+       <i class="fas fa-moon"></i> 
+      </button> 
+    </div>
+   </div> 
+  </nav> 
+  <section class="hero"> 
+  <div class="container"> 
+    <div class="hero-content">
+       <h1>Hi, I'm <span class="highlight">Hauwa idris</span></h1>
+        <p>Full-Stack Web Developer | Building Fast, Responsive & Beautiful Websites</p>
+        <div class="hero-btns"> <a href="projects.html" class="btn btn-primary">View My Work</a>
+           <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+           <a href="./resume.html" class="btn btn-resume" download>Download Resume</a>
+           </div> </div> 
+           <div class="hero-image">
+             <img src="IMG_2135.JPG" alt="Your Name"> 
+            </div>
+           </div> 
+          </section>
+           <section class="skills">
+             <div class="container"> 
+              <h2>My Skills</h2> 
+              <div class="skills-grid">
+                 <div class="skill-card">
+                  <i class="fab fa-html5">
+                  </i> HTML5</div> <div class="skill-card">
+                <i class="fab fa-css3-alt"></i> CSS3</div>
+                 <div class="skill-card">
+                  <i class="fab fa-js"
+          ></i> JavaScript</div>
+           <div class="skill-card">
+            <i class="fab fa-react">
+            </i> React</div> <div class="skill-card"><i class="fab fa-node-js"></i> Node.js</div>
+            <div class="skill-card"><i class="fas fa-database"></i> MongoDB</div> </div> </div> </section> 
+            <footer> <div class="container">
+            </script> 
+            <!DOCTYPE html> <html lang="en" class="light"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <title>Projects | Your Name</title>  </button> </div> </div> </nav> <section class="projects"> <div class="container"> <h2>My Projects</h2> <p>Here are some of the web applications I've built using modern technologies.</p> <div class="projects-grid"> <div class="project-card"> <img src="" alt="E-Commerce App"> <h3>E-Commerce Dashboard</h3> <p>Full-stack app with React, Node.js, MongoDB, and Stripe payments.</p> <div class="project-links"> <a href="https://live-demo.com" target="_blank" class="btn-sm">Live Demo</a> <a href="https://github.com/yourusername/ecommerce" target="_blank" class="btn-sm">Code</a> </div> </div> <div class="project-card"> <img src="images/project2.jpg" alt="Task Manager"> <h3>TaskFlow App</h3> <p>React-based task manager with drag-and-drop and local storage.</p> <div class="project-links"> <a href="https://taskflow-demo.netlify.app" target="_blank" class="btn-sm">Live Demo</a> <a href="https://github.com/yourusername/taskflow" target="_blank" class="btn-sm">Code</a> </div> </div> <div class="project-card"> <img src="images/project3.jpg" alt="Weather App"> <h3>Weather Dashboard</h3> <p>JavaScript app using OpenWeather API and geolocation.</p> <div class="project-links"> <a href="https://weather-alex.netlify.app" target="_blank" class="btn-sm">Live Demo</a> <a href="https://github.com/yourusername/weather-app" target="_blank" class="btn-sm">Code</a> </div> </div> </div> </div> </section> <footer> <div class="container"> <p>&copy; 2025 Your Name. All rights reserved.</p> <div class="social"> <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a> <a href="https://linkedin.com/in/yourname" target="_blank"><i class="fab fa-linkedin"></i></a> <a href="https://twitter.com/yourname" target="_blank"><i class="fab fa-twitter"></i></a> </div> </div> </footer> <script src="js/script.js"></script> </body> </html>
+           <script>
+            // Theme Toggle
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+// Check user preference
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark");
+  themeToggle.innerHTML = "<i class='fas fa-sun'></i>";
+}
+
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark");
+  if (body.classList.contains("dark")) {
+    themeToggle.innerHTML = "<i class='fas fa-sun'></i>";
+    localStorage.setItem("theme", "dark");
+  } else {
+    themeToggle.innerHTML = "<i class='fas fa-moon'></i>";
+    localStorage.setItem("theme", "light");
+  }
+});
+
+// Form Validation
+const contactForm = document.getElementById("contactForm");
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = contactForm.name.value.trim();
+  const email = contactForm.email.value.trim();
+  const message = contactForm.message.value.trim();
+
+  if (!name || !email || !message) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  if (!/\S+@\S+\.\S+/.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  alert(`Thank you, ${name}! Your message has been sent.`);
+  contactForm.reset();
+});
+           </script>
+          </body>
+             </html>
