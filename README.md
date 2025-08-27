@@ -1,16 +1,18 @@
-## Hi there 👋
+# Navigate to your project folder
+cd path/to/your/my-portfolio
 
-<!--
-**Goldern2020/Goldern2020** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# Initialize Git
+git init
 
-Here are some ideas to get you started:
+# Add all files
+git add .
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+# Commit your changes
+git commit -m "Initial portfolio setup"
+
+# Link to GitHub repository (replace YOUR-USERNAME with your GitHub username)
+git remote add origin https://github.com/YOUR-USERNAME/my-portfolio.git
+
+# Push to GitHub
+git branch -M main
+git push -u origin main
