@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me | Your Name</title>
+  <link rel="stylesheet" href="index.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <h2><a href="index.html">YourName.dev</a></h2>
+      <div class="nav-right">
+        <ul class="nav-menu">
+          <li><a href="./log.html">Home</a></li>
+          <li><a href="./contact.html" class="active">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <div class="container">
+      <h2 class="animated">Let's Work Together</h2>
+      <p class="animated">I'm always open to discussing new projects, freelance opportunities, or full-time roles.</p>
+
+      <div class="contact-container">
+        <!-- Contact Form -->
+        <form class="contact-form" id="contactForm" action="#" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="text" name="subject" placeholder="Subject (Optional)">
+          <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <p><i class="fas fa-envelope"></i> <a href="mailto: idrishaauwa374@gmail.com">idrishaauwa374@gmail.com</a></p>
+          <p><i class="fas fa-phone"></i> <a href="tel:+234 9166641286">(+234) 9166641286</a></p>
+          <p><i class="fas fa-map-marker-alt"></i> kano,Nigeria</p>
+
+          <h4>Follow Me</h4>
+          <div class="social-large">
+            <a href="https://github.com/goldern@2020" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a><br>
+            <a href="https://linkedin.com/in/hauwa idris" target="_blank">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a><br>
+            <a href="https://twitter.com/yourname" target="_blank">
+              <i class="fab fa-twitter"></i> Twitter
+            </a><br>
+          </div>
+
+          <br>
+          <a href="resume.pdf" class="btn btn-resume" download>
+            <i class="fas fa-file-alt"></i> Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Your Name. All rights reserved.</p>
+      <div class="social">
+        <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/yourname" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/yourname" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://codepen.io/yourname" target="_blank"><i class="fab fa-codepen"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script >
+    // Form Validation
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = contactForm.name.value.trim();
+      const email = contactForm.email.value.trim();
+      const message = contactForm.message.value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      if (!/\S+@\S+\.\S+/.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      alert(`Thank you, ${name}! Your message has been sent.`);
+      contactForm.reset();
+    });
+  }
+
+  // Scroll Animations
+  const animatedElements = document.querySelectorAll('.animated, .skills h2, .skills-grid .skill-card, .projects h2, .projects p, .projects-grid .project-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  animatedElements.forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(30px)';
+    observer.observe(el);
+  });
+});
+  </script>
+</body>
+</html>
